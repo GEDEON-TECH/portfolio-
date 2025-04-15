@@ -1,0 +1,520 @@
+
+/* --- Variables et Reset --- */
+:root {
+    /* Thème Clair (par défaut) */
+    --primary-color: #007BFF;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #343a40;
+    --text-light: #f8f9fa;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-darken: #0056b3;
+
+    --font-family: 'Poppins', sans-serif;
+    --header-height: 70px; /* Hauteur du header */
+}
+
+/* Thème Sombre (appliqué avec la classe .dark-mode sur body) */
+body.dark-mode {
+    --primary-color: #0d6efd; /* Un bleu légèrement différent si besoin */
+    --secondary-color: #adb5bd;
+    --background-color: #212529;
+    --card-bg: #343a40;
+    --text-color: #f8f9fa;
+    --text-light: #212529;
+    --border-color: #495057;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+    --hover-darken: #0b5ed7;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Pour transition thème sombre */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Header / Navigation --- */
+header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav .nav-links { /* Cible la liste ul */
+    list-style: none;
+    display: flex;
+    align-items: center; /* Aligne verticalement les éléments du menu */
+}
+
+nav .nav-links li {
+    margin-left: 1.5rem;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Style pour le bouton CV */
+.cv-button {
+    padding: 0.4rem 0.8rem !important; /* !important pour surcharger le padding précédent */
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color) !important; /* Surcharger la couleur */
+    margin-left: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.cv-button i {
+    margin-right: 0.5rem;
+}
+
+.cv-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light) !important; /* Surcharger la couleur au survol */
+}
+
+/* Bouton Burger (caché sur desktop) */
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- Sections Générales --- */
+main {
+    padding-top: var(--header-height); /* Espace pour la barre de navigation fixe */
+}
+
+.content-section {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+.content-section h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* --- Section Héros --- */
+.hero-section {
+    min-height: calc(100vh - var(--header-height)); /* Prend la hauteur restante */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 123, 255, 0.03), rgba(0, 123, 255, 0.03));
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--hover-darken);
+    transform: translateY(-3px);
+}
+
+/* --- Section À Propos --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.profile-pic {
+    width: 180px; /* Légèrement plus grand */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
+}
+
+/* Compétences avec icônes */
+.skills-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Un peu plus d'espace */
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.skills-list li {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex; /* Pour aligner icône et texte */
+    align-items: center;
+    gap: 0.8rem; /* Espace entre icône et texte */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skills-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.skills-list i {
+    color: var(--primary-color); /* Couleur de l'icône */
+    font-size: 1.5rem; /* Taille de l'icône */
+}
+
+/* --- Section Projets --- */
+.projects-section {
+     background-color: var(--background-color); /* Même couleur que body ou légèrement différente */
+     border-top: 1px solid var(--border-color);
+     border-bottom: 1px solid var(--border-color);
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Taille min un peu plus grande */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    overflow: hidden;
+    display: flex; /* Utilisation de flex pour mieux contrôler le contenu */
+    flex-direction: column;
+    padding: 0; /* Padding géré par les éléments internes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.project-card-content {
+     padding: 1.5rem;
+     flex-grow: 1; /* Permet au contenu de prendre l'espace restant */
+     display: flex;
+     flex-direction: column;
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-align: left; /* Reset de l'alignement */
+    margin-top: 0; /* Reset margin top */
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Pousse les liens vers le bas */
+}
+
+.project-links {
+    margin-top: auto; /* Pousse les liens en bas de la carte */
+    display: flex;
+    gap: 1rem; /* Espace entre les liens */
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block; /* Pour padding */
+    padding: 0.3rem 0;
+}
+.project-link.external i {
+    margin-right: 0.4rem;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Section Contact --- */
+.contact-section {
+    background-color: var(--background-color);
+}
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: grid;
+    gap: 1rem;
+    background-color: var(--card-bg); /* Ajout d'un fond à la carte de formulaire */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    background-color: var(--background-color); /* Fond des inputs */
+    color: var(--text-color); /* Couleur du texte dans les inputs */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--secondary-color);
+}
+
+
+.contact-form button {
+    width: auto;
+    justify-self: center;
+    margin-top: 1rem; /* Espace au dessus du bouton */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.social-links {
+    margin-bottom: 1.5rem;
+}
+.social-links a {
+    color: var(--background-color);
+    font-size: 1.8rem; /* Taille des icônes sociales */
+    margin: 0 0.8rem;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color); /* Changement de couleur au survol */
+}
+footer p {
+    font-size: 0.9rem;
+}
+
+/* --- Bouton Retour en Haut --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0; /* Caché par défaut */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: var(--hover-darken);
+    transform: scale(1.1);
+}
+
+
+/* --- ANIMATIONS (Identiques à avant) --- */
+@keyframes fadeInDown { /* ... */ }
+@keyframes fadeInUp { /* ... */ }
+@keyframes popIn { /* ... */ }
+.animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+.animate-fade-in-up { opacity: 0; animation: fadeInUp 1s ease-out 0.5s forwards; }
+.animate-pop-in { opacity: 0; animation: popIn 0.8s ease-out 1s forwards; }
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    nav .logo {
+        font-size: 1.3rem;
+    }
+
+    /* Afficher le burger et cacher le menu normal */
+    .burger {
+        display: block;
+        z-index: 1001; /* Au dessus du menu */
+    }
+
+    nav .nav-links {
+        position: fixed;
+        left: 0;
+        top: 0; /* Couvre tout l'écran */
+        height: 100vh; /* Prend toute la hauteur */
+        width: 100%;
+        background-color: var(--card-bg); /* Fond du menu mobile */
+        flex-direction: column;
+        justify-content: center; /* Centre les liens verticalement */
+        align-items: center;
+        gap: 2rem; /* Espace entre les liens */
+        transform: translateX(100%); /* Cache le menu sur la droite */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000; /* Derrière le bouton burger mais au dessus du reste */
+    }
+
+    /* Classe active pour afficher le menu */
+    nav .nav-links.active {
+        transform: translateX(0);
+    }
+
+    nav .nav-links li {
+        margin-left: 0;
+    }
+    nav .nav-links a {
+        font-size: 1.5rem; /* Liens plus grands en mobile */
+    }
+    .cv-button {
+        margin-left: 0; /* Reset margin */
+        font-size: 1.3rem;
+    }
+
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* 1 colonne */
+    }
+
+    #back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}

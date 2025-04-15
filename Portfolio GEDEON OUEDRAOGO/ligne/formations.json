@@ -1,0 +1,36 @@
+
+[
+    {
+      "id": 1,
+      "name": "Développement Web",
+      "icon": "assets/images/web-development-icon.png",
+      "description": "Apprenez à créer des sites web avec HTML, CSS et JavaScript.",
+      "modules": [
+        {
+          "name": "Introduction au Web",
+          "link": "module1.html",
+          "resources": [
+            { "type": "video", "url":"youtube.com/@Grafikart" },
+            { "type": "pdf", "url": "https://drive.google.com/file/d/1aBcD3fGk0lT5LZoQZ0P_fpdf/view?usp=sharing" }
+          ]
+        },
+        {
+          "name": "HTML et CSS",
+          "link": "module2.html",
+          "resources": [
+            { "type": "video", "url": "youtube.com/@Grafikart" },
+            { "type": "pdf", "url": "https://drive.google.com/file/d/1bFgG7xHkZmGJw0iqp4Loeh8b7q79KgOh/view?usp=sharing" }
+          ]
+        },
+        {
+          "name": "JavaScript de Base",
+          "link": "module3.html",
+          "resources": [
+            { "type": "video", "url": "https://www.youtube.com/watch?v=Y80juYcu3ZI&list=PLwLsbqvBlImHG5yeUCXJ1aqNMgUKi1NK3&pp=0gcJCV8EOCosWNin" },
+            { "type": "pdf", "url": "https://drive.google.com/file/d/1JfYXkmldzpktLz9LX9ZcvdWqGFthYr1e/view?usp=sharing" }
+          ]
+        }
+      ]
+    }
+  ]
+  
