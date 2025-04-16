@@ -29,7 +29,7 @@
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <!-- Lien Télécharger CV -->
-                <li><a href="cv_gedeon_ouedraogo.pdf" download class="cv-button"><i class="fas fa-download"></i> Mon CV</a></li>
+                <li><a href="CURRICULUM VITAE.pdf" download class="cv-button"><i class="fas fa-download"></i> Mon CV</a></li>
             </ul>
             <!-- Bouton Burger pour Mobile -->
             <button class="burger" aria-label="Menu" aria-expanded="false">
@@ -92,7 +92,7 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
                     <a href="#" target="_blank" class="project-link external"><i class="fas fa-external-link-alt"></i> Live Demo</a> 
                 </div>
                 <div class="project-card animate-on-scroll">
-                    <img src=" 1739925856742.jpg" alt="Aperçu du Projet 2" loading="lazy">
+                    <img src="formations en ligne.png" alt="Aperçu du Projet 2" loading="lazy">
                    <a href="ligne/acceuil/acceuil.html"> <h3> Formations en ligme </h3></a>
                     <p> Formation en ligne complète en informatique, axée sur le développement web, la création de logiciels (dont un projet e-commerce), la gestion de bases de données et l’utilisation des technologies modernes comme React, Node.js, Laravel, Firebase, etc. Elle s’adresse aux débutants et passionnés souhaitant acquérir des compétences solides et pratiques dans le domaine du numérique.
                     </p>
@@ -117,7 +117,7 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
 
         <section id="contact" class="content-section contact-section">
             <h2 class="animate-on-scroll">Contactez-moi</h2>
-            <p class="animate-on-scroll">N'hésitez pas à me contacter via ce formulaire ou par email à gedeonouedraogo87@gmail.com].</p>
+            <p class="animate-on-scroll">N'hésitez pas à me contacter via ce formulaire ou par email à gedeonouedraogo87@gmail.com.</p>
             <form class="contact-form animate-on-scroll" action="gedeonouedraogo87@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Votre Nom" required>
                 <input type="email" name="email" placeholder="Votre Email" required>
@@ -132,8 +132,8 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
             <a href="https://wa.me/22655316683" target="_blank" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
               </a>
-            <a href="https://github.com/[votre-pseudo]" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/[votre-profil]" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/GEDEON-TECH/portfolio-/tree/72db243bc36cba647b3f843f5513cb81c2d9938e/Portfolio%20GEDEON%20OUEDRAOGO" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
            
        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a> 
         </div>
@@ -148,6 +148,7 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
     <!-- Script JS (animations + retour en haut + placeholder menu burger/dark mode) -->
     <script>
         // --- Animation au défilement (Intersection Observer) ---
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -162,14 +163,14 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
             threshold: 0.1
         });
 
+       
         const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
         elementsToAnimate.forEach(el => observer.observe(el));
 
-        // --- Bouton Retour en Haut ---
+        
         const backToTopButton = document.getElementById('back-to-top');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Afficher après 300px de défilement
+            if (window.scrollY > 300) { 
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
@@ -183,38 +184,22 @@ Je conçois des projets utiles dans l’éducation, l’e-commerce et le marketi
             });
         });
 
-        // --- Placeholder: Logique pour Menu Burger ---
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
 
         burger.addEventListener('click', () => {
-            // 1. Basculer la classe 'active' sur navLinks pour l'afficher/masquer
             navLinks.classList.toggle('active');
 
-            // 2. Changer l'icône du burger (bars <-> times)
             const icon = burger.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
 
-            // 3. Mettre à jour l'attribut aria-expanded pour l'accessibilité
             const isExpanded = navLinks.classList.contains('active');
             burger.setAttribute('aria-expanded', isExpanded);
 
-            // Optionnel : Empêcher le scroll du body quand le menu est ouvert
-            // document.body.style.overflow = isExpanded ? 'hidden' : '';
         });
 
 
-        // --- Placeholder: Logique pour Thème Sombre ---
-        // const themeToggleButton = document.getElementById('theme-toggle'); // (Ajouter un bouton dans le HTML)
-        // themeToggleButton.addEventListener('click', () => {
-        //     document.body.classList.toggle('dark-mode');
-        //     // Optionnel: Sauvegarder la préférence dans localStorage
-        // });
-        // // Optionnel: Vérifier la préférence au chargement
-        // if (localStorage.getItem('theme') === 'dark') {
-        //     document.body.classList.add('dark-mode');
-        // }
 
     </script>
 
